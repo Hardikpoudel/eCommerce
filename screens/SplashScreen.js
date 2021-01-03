@@ -36,12 +36,12 @@ const SplashScreen = ({navigation}) => {
         >
             <Text style={[styles.title, {
                 color: colors.text
-            }]}>Stay connected with everyone!</Text>
+            }]}>By Nepali For Nepali!</Text>
             <Text style={styles.text}>Sign in with account</Text>
             <View style={styles.button}>
             <TouchableOpacity onPress={()=>navigation.navigate('SignInScreen')}>
                 <LinearGradient
-                    colors={['#08d4c4', '#01ab9d']}
+                    colors={['#05375a', '#01ab9d']}
                     style={styles.signIn}
                 >
                     <Text style={styles.textSign}>Get Started</Text>
@@ -66,7 +66,7 @@ const height_logo = height * 0.28;
 const styles = StyleSheet.create({
   container: {
     flex: 1, 
-    backgroundColor: '#009387'
+    backgroundColor: '#002493'
   },
   header: {
       flex: 2,
@@ -111,4 +111,3 @@ const styles = StyleSheet.create({
       fontWeight: 'bold'
   }
 });
-

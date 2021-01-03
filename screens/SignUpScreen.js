@@ -15,8 +15,8 @@ import * as Animatable from 'react-native-animatable';
 import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
-
-const SignInScreen = ({navigation}) => {
+//import AsyncStorage from '@react-native-async-storage/async-storage';
+const SignUpScreen = ({navigation}) => {
 
     const [data, setData] = React.useState({
         username: '',
@@ -25,8 +25,22 @@ const SignInScreen = ({navigation}) => {
         check_textInputChange: false,
         secureTextEntry: true,
         confirm_secureTextEntry: true,
+        isValidUser: true,
+        isValidPassword: true,
     });
 
+
+    //getting fetch request from the header
+    //////////async
+    sendCred=()=>{
+
+        fetch("http://10.0.2.2:3000/")
+        .then (res=>res.json())
+        .then(data1=>{
+            console.log(data1)
+        })
+    }
+    
     const textInputChange = (val) => {
         if( val.length !== 0 ) {
             setData({
@@ -82,7 +96,7 @@ const SignInScreen = ({navigation}) => {
             style={styles.footer}
         >
             <ScrollView>
-            <Text style={styles.text_footer}>Username</Text>
+            <Text style={styles.text_footer}>Username/Email</Text>
             <View style={styles.action}>
                 <FontAwesome 
                     name="user-o"
@@ -92,6 +106,7 @@ const SignInScreen = ({navigation}) => {
                 <TextInput 
                     placeholder="Your Username"
                     style={styles.textInput}
+                    value={data.username}
                     autoCapitalize="none"
                     onChangeText={(val) => textInputChange(val)}
                 />
@@ -121,6 +136,7 @@ const SignInScreen = ({navigation}) => {
                     placeholder="Your Password"
                     secureTextEntry={data.secureTextEntry ? true : false}
                     style={styles.textInput}
+                    value={data.password}
                     autoCapitalize="none"
                     onChangeText={(val) => handlePasswordChange(val)}
                 />
@@ -155,6 +171,7 @@ const SignInScreen = ({navigation}) => {
                 <TextInput 
                     placeholder="Confirm Your Password"
                     secureTextEntry={data.confirm_secureTextEntry ? true : false}
+                    value={data.confirm_password}
                     style={styles.textInput}
                     autoCapitalize="none"
                     onChangeText={(val) => handleConfirmPasswordChange(val)}
@@ -188,10 +205,10 @@ const SignInScreen = ({navigation}) => {
             <View style={styles.button}>
                 <TouchableOpacity
                     style={styles.signIn}
-                    onPress={() => {}}
+                    onPress={()=>sendCred()}
                 >
                 <LinearGradient
-                    colors={['#08d4c4', '#01ab9d']}
+                    colors={['#004293', '#01ab9d']}
                     style={styles.signIn}
                 >
                     <Text style={[styles.textSign, {
@@ -203,13 +220,13 @@ const SignInScreen = ({navigation}) => {
                 <TouchableOpacity
                     onPress={() => navigation.goBack()}
                     style={[styles.signIn, {
-                        borderColor: '#009387',
+                        borderColor: '#004293',
                         borderWidth: 1,
                         marginTop: 15
                     }]}
                 >
                     <Text style={[styles.textSign, {
-                        color: '#009387'
+                        color: '#004293'
                     }]}>Sign In</Text>
                 </TouchableOpacity>
             </View>
@@ -219,12 +236,12 @@ const SignInScreen = ({navigation}) => {
     );
 };
 
-export default SignInScreen;
+export default SignUpScreen;
 
 const styles = StyleSheet.create({
     container: {
       flex: 1, 
-      backgroundColor: '#009387'
+      backgroundColor: '#004293'
     },
     header: {
         flex: 1,
