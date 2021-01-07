@@ -1,16 +1,22 @@
 import React from 'react';
 import { View, Text, Button, StyleSheet, StatusBar } from 'react-native';
 import { useTheme } from '@react-navigation/native';
+import { List, Searchbar } from 'react-native-paper';
 
 const HomeScreen = ({navigation}) => {
 
   const { colors } = useTheme();
 
   const theme = useTheme();
-  
+  const [searchQuery, setSearchQuery] = React.useState('');
+  const onChangeSearch = query => setSearchQuery(query);
     return (
-      
+
       <View >
+        <Searchbar
+        placeholder="Search"
+        onChangeText={onChangeSearch}
+        value={searchQuery}/>
         <Text style={{marginBottom: 10, marginTop: 20 }} h2>
 
             Timberland shoes
