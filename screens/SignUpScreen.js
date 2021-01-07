@@ -32,15 +32,8 @@ const SignUpScreen = ({navigation}) => {
 
     //getting fetch request from the header
     //////////async
-    sendCred=()=>{
-
-        fetch("http://10.0.2.2:3000/")
-        .then (res=>res.json())
-        .then(data1=>{
-            console.log(data1)
-        })
-    }
     
+
     const textInputChange = (val) => {
         if( val.length !== 0 ) {
             setData({
@@ -205,7 +198,28 @@ const SignUpScreen = ({navigation}) => {
             <View style={styles.button}>
                 <TouchableOpacity
                     style={styles.signIn}
-                    onPress={()=>sendCred()}
+                    //sending credential for signup screen
+                    onPress={()=>sendCred=async()=>{
+                        fetch("http://10.0.2.2:3000/signup",{
+                        method:"POST",
+                        headers: {
+                        'Content-Type': 'application/json'
+                        },
+                        body:JSON.stringify({
+                        "email":data.username,
+                        "password":data.password
+                        })
+                     })
+                        .then (res=>res.json())
+                        .then(async (data1)=>{
+                            try {
+                                await AsyncStorage.setItem('token', data1.token)
+                              } catch (e) {
+                                console.log("error hai",e)
+                              }
+                
+                        })
+                    }}
                 >
                 <LinearGradient
                     colors={['#004293', '#01ab9d']}

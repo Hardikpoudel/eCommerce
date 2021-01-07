@@ -9,13 +9,29 @@ const HomeScreen = ({navigation}) => {
   const theme = useTheme();
   
     return (
-      <View style={styles.container}>
-        <StatusBar barStyle= { theme.dark ? "light-content" : "dark-content" }/>
-        <Text style={{color: colors.text}}>Home Screen</Text>
-      <Button
-        title="Go to details screen"
-        onPress={() => navigation.navigate("Details")}
-      />
+      
+      <View >
+        <Text style={{marginBottom: 10, marginTop: 20 }} h2>
+
+            Timberland shoes
+
+        </Text>
+
+        <Text style={styles.price} h4>
+
+          $ 450
+
+        </Text>
+
+        <Text h6 style={styles.description}>
+          added 1d ago
+
+        </Text>
+        <Button
+          type="clear"
+          title='Buy now'
+          onPress={() => this.props.navigation.navigate('Details')} 
+        />
       </View>
     );
 };
@@ -28,4 +44,17 @@ const styles = StyleSheet.create({
     alignItems: 'center', 
     justifyContent: 'center'
   },
+  name: {
+    color: '#5a647d',
+    fontWeight: 'bold',
+    fontSize: 30
+},
+price: {
+    fontWeight: 'bold',
+    marginBottom: 10
+},
+description: {
+    fontSize: 10,
+    color: '#c1c4cd'
+},
 });
