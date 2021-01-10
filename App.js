@@ -1,11 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, { useEffect } from 'react';
 import { View, ActivityIndicator } from 'react-native';
 import { 
@@ -33,6 +25,7 @@ import { AuthContext } from './components/context';
 import RootStackScreen from './screens/RootStackScreen';
 
 import AsyncStorage from '@react-native-community/async-storage';
+import LottieView from 'lottie-react-native';
 
 const Drawer = createDrawerNavigator();
 
@@ -152,13 +145,13 @@ const App = () => {
       }
       // console.log('user token: ', userToken);
       dispatch({ type: 'RETRIEVE_TOKEN', token: userToken });
-    }, 1000);
+    }, 5500);
   }, []);
 
   if( loginState.isLoading ) {
     return(
       <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
-        <ActivityIndicator size="large"/>
+        <LottieView source={require('./assets/34612-ecommerce-store.json')} autoPlay loop />
       </View>
     );
   }
