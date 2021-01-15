@@ -15,7 +15,7 @@ import * as Animatable from 'react-native-animatable';
 import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
-//import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-community/async-storage';
 const SignUpScreen = ({navigation}) => {
 
     const [data, setData] = React.useState({
@@ -199,7 +199,7 @@ const SignUpScreen = ({navigation}) => {
                 <TouchableOpacity
                     style={styles.signIn}
                     //sending credential for signup screen
-                    onPress={()=>sendCred=async()=>{
+                    onPress={async()=>{
                         fetch("http://10.0.2.2:3000/signup",{
                         method:"POST",
                         headers: {
@@ -215,7 +215,7 @@ const SignUpScreen = ({navigation}) => {
                             try {
                                 await AsyncStorage.setItem('token', data1.token)
                               } catch (e) {
-                                console.log("error hai",e)
+                                console.log("error here",e)
                               }
                 
                         })

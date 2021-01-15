@@ -151,7 +151,7 @@ const App = () => {
   if( loginState.isLoading ) {
     return(
       <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
-        <LottieView source={require('./assets/34612-ecommerce-store.json')} autoPlay loop />
+        <LottieView source={require('./assets/43108-business-team.json')} autoPlay loop />
       </View>
     );
   }
