@@ -19,6 +19,7 @@ import MainTabScreen from './screens/MainTabScreen';
 import SupportScreen from './screens/SupportScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import BookmarkScreen from './screens/BookmarkScreen';
+import ItemDetail from './screens/ItemDetail';
 
 import { AuthContext } from './components/context';
 
@@ -139,7 +140,7 @@ const App = () => {
       let userToken;
       userToken = null;
       try {
-        userToken = await AsyncStorage.getItem('userToken');
+        userToken = await AsyncStorage.getItem('token');
       } catch(e) {
         console.log(e);
       }
@@ -165,6 +166,7 @@ const App = () => {
           <Drawer.Screen name="SupportScreen" component={SupportScreen} />
           <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
           <Drawer.Screen name="BookmarkScreen" component={BookmarkScreen} />
+          <Drawer.Screen name="ItemDetail" component={ItemDetail}/>
         </Drawer.Navigator>
       )
     :
