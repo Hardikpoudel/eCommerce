@@ -1,11 +1,13 @@
-export const sofa = require("../assets/images/sofa.png");
-export const redChair = require("../assets/images/red_chair.png");
-export const greenChair = require("../assets/images/green_chair.png");
-export const whiteChair = require("../assets/images/white_chair.png");
+export const dhaka = require('../assets/images/dhaka.png');
+export const felt = require('../assets/images/felt.png');
+export const thanka = require('../assets/images/thanka.png');
+export const khukuri = require('../assets/images/khukuri.png');
+export const pasmina = require('../assets/images/pasmina.png');
 
 export default {
-    sofa,
-    redChair,
-    greenChair,
-    whiteChair,
-}
+  dhaka,
+  felt,
+  thanka,
+  khukuri,
+  pasmina,
+};

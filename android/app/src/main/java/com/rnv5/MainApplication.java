@@ -1,4 +1,4 @@
-package com.rnv5;
+package com.pasal;
 
 import android.app.Application;
 import android.content.Context;
